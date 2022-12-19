@@ -183,7 +183,9 @@ def part2():
     # 01101110 <-- The complement [elephant checks], can be gotten from XOR-ing with the max_bit
 
     max_flow = 0
-    for i in range(max_bit + 1):
+
+    # Halving due to duplicate complements
+    for i in range((max_bit + 1) // 2):
 
         max_flow = max(max_flow, (dfs(26, "AA", i) + dfs(26, "AA", max_bit ^ i)))
 
